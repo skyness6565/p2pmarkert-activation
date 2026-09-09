@@ -10,11 +10,11 @@ const stores = [
 
 export function Download() {
   return (
-    <section id="download" className="bg-surface py-24">
-      <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-5 lg:grid-cols-2 lg:px-10">
+    <section id="download" className="bg-surface py-16 sm:py-24">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-5 sm:gap-12 lg:grid-cols-2 lg:px-10">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Get started</p>
-          <h2 className="mt-4 max-w-[14ch] text-[2rem] font-extrabold leading-[1.1] tracking-tight text-foreground lg:text-[2.9rem]">
+          <h2 className="mt-4 max-w-[14ch] text-[1.7rem] font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-[2rem] lg:text-[2.9rem]">
             Start earning digital asset for free today.
           </h2>
           <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">

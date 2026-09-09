@@ -26,9 +26,9 @@ export function FeatureSection({
   return (
     <section
       id={id}
-      className={cn("py-24", dark ? "bg-ink text-white" : "bg-background text-foreground")}
+      className={cn("py-16 sm:py-24", dark ? "bg-ink text-white" : "bg-background text-foreground")}
     >
-      <div className="mx-auto grid max-w-[1400px] items-center gap-14 px-5 lg:grid-cols-2 lg:px-10">
+      <div className="mx-auto grid max-w-[1400px] items-center gap-10 px-5 sm:gap-14 lg:grid-cols-2 lg:px-10">
         <Reveal className={cn(reverse && "lg:order-2")}>
           <p
             className={cn(
@@ -38,7 +38,7 @@ export function FeatureSection({
           >
             {eyebrow}
           </p>
-          <h2 className="mt-4 max-w-[15ch] text-[2rem] font-extrabold leading-[1.1] tracking-tight lg:text-[2.9rem]">
+          <h2 className="mt-4 max-w-[15ch] text-[1.7rem] font-extrabold leading-[1.1] tracking-tight sm:text-[2rem] lg:text-[2.9rem]">
             {title}
           </h2>
           <p

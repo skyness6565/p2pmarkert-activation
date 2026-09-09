@@ -4,11 +4,11 @@ import feature from "@/assets/blog-nyse.jpg";
 
 export function Blog() {
   return (
-    <section id="blog" className="bg-background py-24">
+    <section id="blog" className="bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
         <Reveal>
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Blog</p>
-          <h2 className="mt-4 text-[2rem] font-extrabold tracking-tight text-foreground lg:text-[2.6rem]">
+          <h2 className="mt-4 text-[1.7rem] font-extrabold tracking-tight text-foreground sm:text-[2rem] lg:text-[2.6rem]">
             Latest releases.
           </h2>
         </Reveal>
@@ -28,8 +28,8 @@ export function Blog() {
                 className="size-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
               />
             </div>
-            <div className="flex flex-col justify-center gap-4 p-8 lg:p-12">
-              <h3 className="text-2xl font-bold leading-snug tracking-tight text-foreground">
+            <div className="flex flex-col justify-center gap-4 p-6 sm:p-8 lg:p-12">
+              <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground sm:text-2xl">
                 Why InterLink is targeting the NYSE — not just crypto hype
               </h3>
               <p className="text-sm font-semibold text-muted-foreground">Sep 3, 2025</p>

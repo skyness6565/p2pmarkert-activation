@@ -90,17 +90,17 @@ export function Header() {
           <Dropdown label="Resource" items={resource} />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#download"
-            className="rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-glow transition-transform duration-300 hover:-translate-y-0.5"
+            className="rounded-full bg-gradient-brand px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-glow transition-transform duration-300 hover:-translate-y-0.5 sm:px-6 sm:py-3 sm:text-sm"
           >
             Get the app
           </a>
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-full border border-border text-foreground lg:hidden"
+            className="grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground sm:size-10 lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

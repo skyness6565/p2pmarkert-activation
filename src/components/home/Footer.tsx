@@ -10,9 +10,9 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer className="bg-ink py-16 text-white">
+    <footer className="bg-ink py-12 text-white sm:py-16">
       <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
             <div className="flex items-center gap-2">
               <span className="grid size-8 place-items-center rounded-[10px] bg-gradient-brand">
