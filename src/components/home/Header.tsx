@@ -56,9 +56,9 @@ export function Header() {
         solid ? "bg-background/85 shadow-soft backdrop-blur-xl" : "bg-background"
       }`}
     >
-      <nav className="mx-auto flex h-[76px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid size-8 place-items-center rounded-[10px] bg-gradient-brand text-primary-foreground shadow-glow">
+      <nav className="mx-auto flex h-[64px] max-w-[1400px] items-center justify-between gap-2 px-4 sm:h-[76px] sm:px-5 lg:px-10">
+        <a href="#top" className="flex min-w-0 items-center gap-2">
+          <span className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-gradient-brand text-primary-foreground shadow-glow">
             <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden="true">
               <path
                 d="M6 15a5 5 0 0 1 5-5h2a5 5 0 0 1 0 10h-2"
@@ -69,7 +69,7 @@ export function Header() {
               <circle cx="8" cy="7" r="2.6" fill="currentColor" />
             </svg>
           </span>
-          <span className="text-lg font-extrabold tracking-tight text-primary">InterLink</span>
+          <span className="truncate text-lg font-extrabold tracking-tight text-primary">InterLink</span>
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
