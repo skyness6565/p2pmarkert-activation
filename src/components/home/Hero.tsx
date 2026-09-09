@@ -18,7 +18,7 @@ export function Hero() {
     return () => clearInterval(t);
   }, []);
 
-  const loc = locations[i];
+  const loc = locations[i] ?? locations[0]!;
 
   return (
     <section id="top" className="relative h-[92vh] min-h-[620px] w-full overflow-hidden bg-ink">
