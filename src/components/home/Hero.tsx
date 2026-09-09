@@ -47,13 +47,20 @@ export function Hero() {
           assets with other, using Interlink Escrow services
         </h1>
 
-        <div className="mt-9 animate-rise [animation-delay:180ms] [animation-fill-mode:both]">
+        <div className="mt-7 flex flex-wrap gap-3 animate-rise [animation-delay:180ms] [animation-fill-mode:both] sm:mt-9">
           <a
             href="#download"
-            className="inline-flex rounded-full bg-ink px-9 py-4 text-sm font-bold text-white shadow-float transition-transform duration-300 hover:-translate-y-1"
+            className="inline-flex rounded-full bg-ink px-7 py-3.5 text-sm font-bold text-white shadow-float transition-transform duration-300 hover:-translate-y-1 sm:px-9 sm:py-4"
           >
             Download
           </a>
+          <Link
+            to="/mine"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-extrabold text-emerald-600 shadow-float transition-transform duration-300 hover:-translate-y-1 lg:hidden"
+          >
+            <span className="size-5 animate-spin-coin rounded-full bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600" />
+            Activate Marketplace
+          </Link>
         </div>
 
         <Link
