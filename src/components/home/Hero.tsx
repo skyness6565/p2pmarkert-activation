@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import heroImage from "@/assets/hero-marketplace.jpg";
 
 const locations = [
@@ -55,10 +56,14 @@ export function Hero() {
           </a>
         </div>
 
-        <div className="pointer-events-none absolute left-1/2 top-1/2 hidden -translate-y-16 animate-float items-center gap-3 rounded-full bg-white px-6 py-4 shadow-float lg:flex">
+        <Link
+          to="/mine"
+          className="absolute left-1/2 top-1/2 hidden -translate-y-16 animate-float items-center gap-3 rounded-full bg-white px-6 py-4 shadow-float transition-transform duration-300 hover:-translate-y-20 lg:flex"
+        >
           <span className="size-7 animate-spin-coin rounded-full bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 shadow-inner" />
           <span className="text-lg font-extrabold text-emerald-600">$ITL Activate Marketplace</span>
-        </div>
+        </Link>
+
       </div>
     </section>
   );
