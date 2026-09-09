@@ -1,6 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Check, Globe, Home, Store, User, UsersRound } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+  Home,
+  LogIn,
+  MoreVertical,
+  Plus,
+  Store,
+  User,
+  UsersRound,
+  Wallet as WalletIcon,
+  X,
+} from "lucide-react";
 import coinsSilver from "@/assets/app-coins-silver.png";
 import coinGold from "@/assets/app-coin-gold.png";
 import globeNetwork from "@/assets/app-globe-network.png";
@@ -76,9 +91,11 @@ function MinePage() {
         </header>
 
         <main className="space-y-4 px-4 pt-3">
-          <h1 className="animate-rise text-[2rem] font-extrabold tracking-tight text-foreground">
-            Good Afternoon!
-          </h1>
+          {tab === "app" && (
+            <h1 className="animate-rise text-[2rem] font-extrabold tracking-tight text-foreground">
+              Good Afternoon!
+            </h1>
+          )}
 
           {tab === "app" ? (
             <>
@@ -171,22 +188,7 @@ function MinePage() {
               </article>
             </>
           ) : (
-            <div className="animate-fade-in space-y-4">
-              <article className="rounded-[26px] bg-[linear-gradient(150deg,oklch(0.6_0.22_288),oklch(0.5_0.24_278))] p-6 text-primary-foreground shadow-glow">
-                <p className="text-sm font-medium opacity-80">Total balance</p>
-                <p className="mt-1 text-4xl font-extrabold tracking-tight">$0.00</p>
-                <p className="mt-4 text-sm opacity-80">ITLX Wallet · non-custodial</p>
-              </article>
-              {["Send", "Receive", "Swap", "Marketplace escrow"].map((a) => (
-                <button
-                  key={a}
-                  className="flex w-full items-center justify-between rounded-[22px] bg-accent/60 px-6 py-5 text-left text-base font-bold text-foreground transition-colors hover:bg-accent"
-                >
-                  {a}
-                  <ArrowUpRight className="size-5 text-primary" />
-                </button>
-              ))}
-            </div>
+            <ManageWallets />
           )}
         </main>
 
@@ -210,6 +212,85 @@ function MinePage() {
           ))}
         </nav>
       </div>
+    </div>
+  );
+}
+
+function ManageWallets() {
+  const [sheetOpen, setSheetOpen] = useState(true);
+
+  return (
+    <div className="animate-fade-in relative -mx-4 min-h-[560px] rounded-b-[26px] bg-[oklch(0.75_0.012_300)] px-5 pb-6 pt-4">
+      <div className="flex items-center gap-3">
+        <button
+          aria-label="Back"
+          className="grid size-11 place-items-center rounded-full bg-white/25 text-foreground transition-colors hover:bg-white/40"
+        >
+          <ChevronLeft className="size-5" />
+        </button>
+        <h2 className="flex-1 pr-11 text-center text-xl font-extrabold tracking-tight text-foreground">
+          Manage Wallets
+        </h2>
+      </div>
+
+      <button className="mt-8 flex w-full items-center justify-between text-left">
+        <span className="text-2xl font-extrabold tracking-tight text-foreground">Wallet 1</span>
+        <ChevronRight className="size-5 text-foreground/60" />
+      </button>
+
+      <div className="mt-5 flex items-center gap-4">
+        <span className="size-12 rounded-full bg-[conic-gradient(at_30%_30%,oklch(0.7_0.16_150),oklch(0.55_0.2_285),oklch(0.7_0.14_250),oklch(0.6_0.18_300),oklch(0.7_0.16_150))]" />
+        <span className="flex-1">
+          <span className="block text-base font-bold text-foreground">Account #1</span>
+          <span className="block text-sm font-medium text-foreground/55">$*.**</span>
+        </span>
+        <button aria-label="Account options" className="text-foreground/60 hover:text-foreground">
+          <MoreVertical className="size-5" />
+        </button>
+      </div>
+
+      <button
+        onClick={() => setSheetOpen(true)}
+        className="mt-6 flex w-full items-center gap-4 text-left"
+      >
+        <span className="grid size-12 place-items-center rounded-full bg-white/25 text-foreground/70">
+          <Plus className="size-5" />
+        </span>
+        <span className="text-base font-semibold text-foreground/55">Add Account</span>
+      </button>
+
+      {sheetOpen && (
+        <div className="absolute inset-x-0 bottom-0 animate-rise rounded-t-[26px] bg-card px-5 pb-8 pt-4 shadow-float">
+          <span className="mx-auto block h-1.5 w-10 rounded-full bg-border" />
+          <div className="mt-5 flex items-center justify-between">
+            <h3 className="text-xl font-extrabold tracking-tight text-foreground">
+              Add or Import Wallet
+            </h3>
+            <button
+              aria-label="Close"
+              onClick={() => setSheetOpen(false)}
+              className="grid size-9 place-items-center rounded-full border border-border text-foreground/70 transition-colors hover:bg-accent"
+            >
+              <X className="size-4" />
+            </button>
+          </div>
+
+          <div className="mt-5 space-y-3">
+            {["Create new wallet", "Import existing wallet"].map((label) => (
+              <button
+                key={label}
+                className="flex w-full items-center gap-4 rounded-2xl bg-accent/60 px-4 py-4 text-left transition-colors hover:bg-accent"
+              >
+                <span className="grid size-11 place-items-center rounded-xl bg-ink text-white">
+                  <WalletIcon className="size-5" />
+                </span>
+                <span className="flex-1 text-base font-bold text-foreground">{label}</span>
+                <LogIn className="size-5 text-foreground/60" />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
