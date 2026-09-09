@@ -56,9 +56,9 @@ export function Header() {
         solid ? "bg-background/85 shadow-soft backdrop-blur-xl" : "bg-background"
       }`}
     >
-      <nav className="mx-auto flex h-[76px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="grid size-8 place-items-center rounded-[10px] bg-gradient-brand text-primary-foreground shadow-glow">
+      <nav className="mx-auto flex h-[64px] max-w-[1400px] items-center justify-between gap-2 px-4 sm:h-[76px] sm:px-5 lg:px-10">
+        <a href="#top" className="flex min-w-0 items-center gap-2">
+          <span className="grid size-8 shrink-0 place-items-center rounded-[10px] bg-gradient-brand text-primary-foreground shadow-glow">
             <svg viewBox="0 0 24 24" className="size-4" fill="none" aria-hidden="true">
               <path
                 d="M6 15a5 5 0 0 1 5-5h2a5 5 0 0 1 0 10h-2"
@@ -69,7 +69,7 @@ export function Header() {
               <circle cx="8" cy="7" r="2.6" fill="currentColor" />
             </svg>
           </span>
-          <span className="text-lg font-extrabold tracking-tight text-primary">InterLink</span>
+          <span className="truncate text-lg font-extrabold tracking-tight text-primary">InterLink</span>
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -90,17 +90,17 @@ export function Header() {
           <Dropdown label="Resource" items={resource} />
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <a
             href="#download"
-            className="rounded-full bg-gradient-brand px-6 py-3 text-sm font-bold text-primary-foreground shadow-glow transition-transform duration-300 hover:-translate-y-0.5"
+            className="rounded-full bg-gradient-brand px-4 py-2.5 text-xs font-bold text-primary-foreground shadow-glow transition-transform duration-300 hover:-translate-y-0.5 sm:px-6 sm:py-3 sm:text-sm"
           >
             Get the app
           </a>
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
-            className="grid size-10 place-items-center rounded-full border border-border text-foreground lg:hidden"
+            className="grid size-9 shrink-0 place-items-center rounded-full border border-border text-foreground sm:size-10 lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

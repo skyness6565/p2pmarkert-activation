@@ -30,8 +30,8 @@ const cards = [
 
 export function Showcase() {
   return (
-    <section className="bg-surface py-20">
-      <div className="mx-auto grid max-w-[1400px] gap-6 px-5 sm:grid-cols-2 lg:grid-cols-4 lg:px-10">
+    <section className="bg-surface py-14 sm:py-20">
+      <div className="mx-auto grid max-w-[1400px] gap-5 px-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:px-10">
         {cards.map((c, idx) => (
           <Reveal key={c.title} delay={idx * 90}>
             <article className="group h-full overflow-hidden rounded-[26px] border border-border bg-card shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-float">

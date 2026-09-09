@@ -11,10 +11,10 @@ const partners = [
 
 export function Credibility() {
   return (
-    <section id="credibility" className="bg-background py-24">
+    <section id="credibility" className="bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-[1400px] px-5 text-center lg:px-10">
         <Reveal>
-          <p className="bg-gradient-brand bg-clip-text text-[2rem] font-extrabold tracking-tight text-transparent lg:text-[2.6rem]">
+          <p className="bg-gradient-brand bg-clip-text text-[1.6rem] font-extrabold tracking-tight text-transparent sm:text-[2rem] lg:text-[2.6rem]">
             Institutional Credibility
           </p>
         </Reveal>
@@ -38,7 +38,7 @@ export function Credibility() {
                 {partners.map((p) => (
                   <div
                     key={`${dup}-${p}`}
-                    className="grid h-24 w-56 place-items-center rounded-2xl border border-border bg-card px-6 text-center text-sm font-bold uppercase tracking-wide text-foreground/70 shadow-soft transition-colors duration-300 hover:text-primary"
+                    className="grid h-20 w-40 shrink-0 place-items-center rounded-2xl border border-border bg-card px-4 text-center text-xs font-bold uppercase tracking-wide text-foreground/70 shadow-soft transition-colors duration-300 hover:text-primary sm:h-24 sm:w-56 sm:px-6 sm:text-sm"
                   >
                     {p}
                   </div>
