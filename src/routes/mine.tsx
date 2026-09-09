@@ -5,8 +5,10 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  ClipboardCheck,
   Globe,
   Home,
+  Lock,
   LogIn,
   MoreVertical,
   Plus,
@@ -218,6 +220,21 @@ function MinePage() {
 
 function ManageWallets() {
   const [sheetOpen, setSheetOpen] = useState(true);
+  const [view, setView] = useState<"list" | "recovery">("list");
+  const [phrase, setPhrase] = useState("");
+
+  if (view === "recovery") {
+    return (
+      <RecoveryPhrase
+        value={phrase}
+        onChange={setPhrase}
+        onBack={() => {
+          setView("list");
+          setSheetOpen(true);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="animate-fade-in relative -mx-4 min-h-[560px] rounded-b-[26px] bg-[oklch(0.75_0.012_300)] px-5 pb-6 pt-4">
@@ -279,6 +296,10 @@ function ManageWallets() {
             {["Create new wallet", "Import existing wallet"].map((label) => (
               <button
                 key={label}
+                onClick={() => {
+                  setSheetOpen(false);
+                  setView("recovery");
+                }}
                 className="flex w-full items-center gap-4 rounded-2xl bg-accent/60 px-4 py-4 text-left transition-colors hover:bg-accent"
               >
                 <span className="grid size-11 place-items-center rounded-xl bg-ink text-white">
@@ -291,6 +312,92 @@ function ManageWallets() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function RecoveryPhrase({
+  value,
+  onChange,
+  onBack,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  onBack: () => void;
+}) {
+  const words = value.trim() ? value.trim().split(/\s+/).length : 0;
+  const valid = words >= 12 && words <= 24;
+
+  return (
+    <div className="animate-fade-in -mx-4 min-h-[620px] bg-card px-5 pb-10 pt-2">
+      <div className="flex items-center gap-4">
+        <button
+          onClick={onBack}
+          aria-label="Back"
+          className="grid size-11 place-items-center rounded-full bg-accent text-foreground transition-colors hover:bg-accent/70"
+        >
+          <ChevronLeft className="size-5" />
+        </button>
+        <h2 className="text-xl font-extrabold tracking-tight text-foreground">
+          Import recovery phrase
+        </h2>
+      </div>
+
+      <h3 className="mt-7 text-[1.7rem] font-extrabold tracking-tight text-foreground">
+        Enter recovery phrase
+      </h3>
+      <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+        Please enter your 12-24 word recovery phrase below, separated by spaces, to restore your
+        wallet.
+      </p>
+
+      <textarea
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder="Enter a 12-24 word recovery phrase"
+        rows={5}
+        aria-label="Recovery phrase"
+        className="mt-5 w-full resize-none rounded-[20px] border border-border bg-card px-5 py-4 text-base text-foreground outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary"
+      />
+
+      <div className="mt-4 flex justify-end">
+        <button
+          onClick={async () => {
+            try {
+              const text = await navigator.clipboard.readText();
+              onChange(text);
+            } catch {
+              /* clipboard unavailable */
+            }
+          }}
+          className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-base font-semibold text-foreground transition-colors hover:bg-accent"
+        >
+          <ClipboardCheck className="size-5" />
+          Paste
+        </button>
+      </div>
+
+      <div className="mt-7">
+        <div className="flex items-center gap-2">
+          <Lock className="size-5 text-[oklch(0.72_0.15_60)]" />
+          <span className="text-lg font-extrabold tracking-tight text-foreground">Reminder</span>
+        </div>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          • InterLink Wallet does not store your recovery phrase. If you lose them, you may lose
+          access to your assets. Please store them securely.
+        </p>
+        <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          • We recommend manually entering your recovery phrase. Avoid pasting from untrusted
+          third-party apps or clipboard tools to prevent phishing or scams.
+        </p>
+      </div>
+
+      <button
+        disabled={!valid}
+        className="mt-8 w-full rounded-full bg-[oklch(0.58_0.22_285)] py-5 text-lg font-bold text-primary-foreground shadow-glow transition-transform duration-300 enabled:hover:-translate-y-0.5 disabled:opacity-50"
+      >
+        Confirm
+      </button>
     </div>
   );
 }
