@@ -10,7 +10,7 @@ const columns = [
 
 export function Footer() {
   return (
-    <footer id="resource" className="bg-ink py-16 text-white">
+    <footer className="bg-ink py-16 text-white">
       <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(4,1fr)]">
           <div>
