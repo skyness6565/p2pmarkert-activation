@@ -76,9 +76,11 @@ function MinePage() {
         </header>
 
         <main className="space-y-4 px-4 pt-3">
-          <h1 className="animate-rise text-[2rem] font-extrabold tracking-tight text-foreground">
-            Good Afternoon!
-          </h1>
+          {tab === "app" && (
+            <h1 className="animate-rise text-[2rem] font-extrabold tracking-tight text-foreground">
+              Good Afternoon!
+            </h1>
+          )}
 
           {tab === "app" ? (
             <>
