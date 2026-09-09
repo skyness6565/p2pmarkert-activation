@@ -1,6 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUpRight, Check, Globe, Home, Store, User, UsersRound } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+  Home,
+  LogIn,
+  MoreVertical,
+  Plus,
+  Store,
+  User,
+  UsersRound,
+  Wallet as WalletIcon,
+  X,
+} from "lucide-react";
 import coinsSilver from "@/assets/app-coins-silver.png";
 import coinGold from "@/assets/app-coin-gold.png";
 import globeNetwork from "@/assets/app-globe-network.png";
