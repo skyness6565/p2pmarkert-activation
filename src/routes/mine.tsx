@@ -171,22 +171,7 @@ function MinePage() {
               </article>
             </>
           ) : (
-            <div className="animate-fade-in space-y-4">
-              <article className="rounded-[26px] bg-[linear-gradient(150deg,oklch(0.6_0.22_288),oklch(0.5_0.24_278))] p-6 text-primary-foreground shadow-glow">
-                <p className="text-sm font-medium opacity-80">Total balance</p>
-                <p className="mt-1 text-4xl font-extrabold tracking-tight">$0.00</p>
-                <p className="mt-4 text-sm opacity-80">ITLX Wallet · non-custodial</p>
-              </article>
-              {["Send", "Receive", "Swap", "Marketplace escrow"].map((a) => (
-                <button
-                  key={a}
-                  className="flex w-full items-center justify-between rounded-[22px] bg-accent/60 px-6 py-5 text-left text-base font-bold text-foreground transition-colors hover:bg-accent"
-                >
-                  {a}
-                  <ArrowUpRight className="size-5 text-primary" />
-                </button>
-              ))}
-            </div>
+            <ManageWallets />
           )}
         </main>
 
